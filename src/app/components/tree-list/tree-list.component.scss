@@ -1,0 +1,79 @@
+.treeview {
+  position: relative;
+  margin: 1rem 0 1rem 1rem;
+  padding: 0;
+  list-style-type: none;
+  text-align: left;
+  app-tree-list {
+    ul {
+      list-style-type: none;
+      text-align: left;
+      margin: 0 0 10px 1rem;
+      padding: 0;
+      position: relative;
+    }
+  }
+  .plus {
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    width: 0.8rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    overflow: hidden;
+    margin: 0.1rem 0 0 -1.1rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    padding: 0;
+    border: none;
+    background: none;
+    i {
+      font-style: normal;
+      flex: 1 0 100%;
+    }
+    b {
+      display: none;
+      flex: 1 0 100%;
+    }
+    ~ app-tree-list {
+      ul {
+        display: none;
+      }
+    }
+    &:focus {
+      background: #f9f9f9;
+      outline: 1px solid #ccc;
+    }
+  }
+  .plus.active {
+    b {
+      display: block;
+    }
+    i {
+      display: none;
+    }
+    ~ app-tree-list {
+      ul {
+        display: block;
+      }
+    }
+  }
+  .showAllCheckbox {
+    margin: 0 0 1.125em 0;
+    &:checked {
+      ~ {
+        ul {
+          ul {
+            display: block;
+          }
+          .plus {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

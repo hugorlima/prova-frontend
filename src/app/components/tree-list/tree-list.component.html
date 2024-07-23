@@ -1,11 +1,12 @@
 <ul [ngClass]="{'treeview': isParent}">
   <ng-container *ngFor="let item of items; let idx = index">
-    <li [ngClass]="{'check-group-wrapper' : item.level === 0}">
-      <button (click)="togglePlusMinus()" type="button" class="plus"
-        [ngClass]="{'active': active}"><i>&plus;</i><b>&minus;</b></button>
-      <input type="checkbox" [id]="idx" autocomplete="off">
+    <li [ngClass]="{'parent-item' : item.level === 0}">
+      <button (click)="togglePlusMinus(item)" type="button" class="plus"
+        [ngClass]="{'active': item?.active}"><i>&plus;</i><b>&minus;</b></button>
+      <input type="checkbox" [id]="item.id" autocomplete="off"  (click)="initiateCheckboxesChecker($event)">
       <label>{{ item.name }}</label>
-      <app-tree-list *ngIf="item.children?.length" [items]="item.children" [isParent]="false"></app-tree-list>
+      <app-tree-list *ngIf="item.children?.length" [items]="item.children" [item]="item"
+        [isParent]="false"></app-tree-list>
     </li>
   </ng-container>
 </ul>

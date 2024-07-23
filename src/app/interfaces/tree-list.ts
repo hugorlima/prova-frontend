@@ -3,10 +3,12 @@ export interface Parent {
   name: string;
   children: Child[];
   level: number;
+  active: boolean;
 }
 interface Child {
   id: string;
   name: string;
   children: Child[];
   level: number;
+  active: boolean;
 }

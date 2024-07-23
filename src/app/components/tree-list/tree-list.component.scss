@@ -15,13 +15,13 @@
   }
   .plus {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 16px;
     display: flex;
-    width: 0.8rem;
-    height: 0.8rem;
-    line-height: 0.8rem;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
     overflow: hidden;
-    margin: 0.1rem 0 0 -1.1rem;
+    margin: 0;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -30,6 +30,7 @@
     padding: 0;
     border: none;
     background: none;
+    left: -25px;
     i {
       font-style: normal;
       flex: 1 0 100%;
@@ -42,10 +43,6 @@
       ul {
         display: none;
       }
-    }
-    &:focus {
-      background: #f9f9f9;
-      outline: 1px solid #ccc;
     }
   }
   .plus.active {
@@ -61,19 +58,26 @@
       }
     }
   }
-  .showAllCheckbox {
-    margin: 0 0 1.125em 0;
-    &:checked {
-      ~ {
-        ul {
+  .parent-item {
+    input[type="checkbox"] {
+      &:checked {
+        ~ {
           ul {
-            display: block;
-          }
-          .plus {
-            display: none;
+            input[type="checkbox"] {
+              display: inline-block;
+            }
+            ul {
+              display: block;
+            }
+            .plus {
+              display: none;
+            }
           }
         }
       }
     }
+  }
+  label {
+    margin-left: 10px;
   }
 }
